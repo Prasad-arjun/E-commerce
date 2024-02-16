@@ -1,28 +1,18 @@
-import "./index.css";
+import "../index.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Avatar from "@mui/material/Avatar";
-import { deepOrange, } from "@mui/material/colors";
-import { Link, Route, Routes } from "react-router-dom";
-import Home from "./pages/home";
-import Shop from "./pages/shop";
-import Feature from "./pages/feature";
-import Account from "./pages/account";
-import Cart from "./pages/cart"
-import Recommnedation from "./pages/recommended";
-function App() {
+import { deepOrange, deepPurple } from "@mui/material/colors";
+function Nav() {
   return (
     <>
       <div className="h-24 w-[100%] center bg-[#f9f9f9]">
         <nav className="h-[90%] w-[95%] centerEvenly ">
           <div className="h-auto w-[50%] flex justify-around items-center ">
             {/*left nav content*/}
-            <Link to="/home">
-              {" "}
-              <header className="text-3xl font-semibold font-mono">
-                Kharidari
-              </header>
-            </Link>
-
+            <Link to="/home"> <header className="text-3xl font-semibold font-mono">
+              Kharidari
+            </header></Link>
+           
             <Link to="/home" className="navText">
               Home
             </Link>
@@ -48,6 +38,7 @@ function App() {
                 <ShoppingCartIcon />
               </Link>
               <Link to="/account">
+                {" "}
                 <Avatar sx={{ bgcolor: deepOrange[600] }}>AP</Avatar>
               </Link>
             </div>
@@ -55,16 +46,19 @@ function App() {
         </nav>
       </div>
 
-      <Routes>
-        <Route path="/home" element={<Home/>}/>
-        <Route path="/shop" element={<Shop/>}/>
-        <Route path="/featured" element={<Feature/>}/>
-        <Route path="/recommended" element={<Recommnedation/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/account" element={<Account/>}/>
-      </Routes>
+      <Switch>
+          <Route path="/manatee">
+            <Manatee />
+          </Route>
+          <Route path="/narwhal">
+            <Narwhal />
+          </Route>
+          <Route path="/whale">
+            <Whale />
+          </Route>
+        </Switch>
     </>
   );
 }
 
-export default App;
+export default Nav;

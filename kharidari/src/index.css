@@ -1,3 +1,77 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*
+{
+  background-color: ;
+}
+
+
+.center
+{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.centerEvenly
+{display: flex;
+justify-content:space-evenly;
+align-items: center;
+
+}
+.centerBetween
+{display: flex;
+justify-content:space-between;
+align-items: center;
+
+}
+
+.navText
+{
+color: #666464f1;
+font-weight:400;
+
+}
+.navText:focus
+{
+color: black;
+}
+
+
+.icon{
+  padding-left:35px;
+  background:url(./assets/searchIcon.png) no-repeat left ;
+  background-size: 22px;
+  background-position: left 5px top 6px ;
+}
+
+.boujee-text {
+  --bg-size: 400%;
+  --color-one: hsl(15 90% 55%);
+  --color-two: hsl(40 95% 55%);
+  font-family: sans-serif;
+  font-size: clamp(3rem, 2vmin, 8rem);
+  background: linear-gradient(
+      90deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)
+    )
+    0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .boujee-text {
+    animation: move-bg 8s linear infinite;
+  }
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+}
+
