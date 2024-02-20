@@ -16,14 +16,13 @@ function App() {
         <nav className="h-[90%] w-[95%] centerEvenly ">
           <div className="h-auto w-[50%] flex justify-around items-center ">
             {/*left nav content*/}
-            <Link to="/home">
-              {" "}
+            <Link to="/">
               <header className="text-3xl font-semibold font-mono">
                 Kharidari
               </header>
             </Link>
 
-            <Link to="/home" className="navText">
+            <Link to="/" className="navText">
               Home
             </Link>
             <Link to="/shop" className="navText">
@@ -56,7 +55,7 @@ function App() {
       </div>
 
       <Routes>
-        <Route path="/home" element={<Home/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/shop" element={<Shop/>}/>
         <Route path="/featured" element={<Feature/>}/>
         <Route path="/recommended" element={<Recommnedation/>}/>
