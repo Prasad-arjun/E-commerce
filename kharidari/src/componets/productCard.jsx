@@ -1,13 +1,34 @@
+import { useNavigate } from "react-router-dom";
 import "../index.css";
 import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
-const ProductCard = ({ productName, price,url,bgcolor}) => {
+const ProductCard = ({ productName, price, url, bgcolor,detail }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/productDetails", {
+      state: {
+        productName,
+        price,
+        url,
+        bgcolor,
+        detail
+      },
+    });
+  };
   return (
     <>
-      <div className="p-1 h-[60%] w-[20vw] flex flex-col justify-around items-center bg-${bgcolor} rounded-lg" style={{ backgroundColor: bgcolor }}>
+      <div
+        className="p-1 m-2 h-[60%] w-[20vw] flex flex-col justify-around items-center  rounded-lg"
+        style={{ backgroundColor: bgcolor }}
+      >
         <div className="h-[70%] w-full center">
-          <img src={url} className="h-[25vh]" />
+          <img
+            src={url}
+            className="h-[25vh] hover:scale-105"
+            onClick={handleClick}
+          />
         </div>
         <div className="h-[30%] w-full flex flex-col justify-center items-center font-semibold">
           <div className="p-3 relative font-semibold">

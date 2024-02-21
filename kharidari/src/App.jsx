@@ -1,14 +1,15 @@
 import "./index.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Avatar from "@mui/material/Avatar";
-import { deepOrange, } from "@mui/material/colors";
+import { deepOrange } from "@mui/material/colors";
 import { Link, Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import Shop from "./pages/shop";
 import Feature from "./pages/feature";
 import Account from "./pages/account";
-import Cart from "./pages/cart"
+import Cart from "./pages/cart";
 import Recommnedation from "./pages/recommended";
+import ProductDetails from "./componets/productDetails";
 function App() {
   return (
     <>
@@ -55,12 +56,13 @@ function App() {
       </div>
 
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/shop" element={<Shop/>}/>
-        <Route path="/featured" element={<Feature/>}/>
-        <Route path="/recommended" element={<Recommnedation/>}/>
-        <Route path="/cart" element={<Cart/>}/>
-        <Route path="/account" element={<Account/>}/>
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/featured" element={<Feature />} />
+        <Route path="/recommended" element={<Recommnedation />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/productDetails" element={<ProductDetails />} />
       </Routes>
     </>
   );
