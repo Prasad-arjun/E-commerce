@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 
-
+/* Landing text animation start  */
 .center
 {
 display: flex;
@@ -70,4 +70,7 @@ color: black;
     }
   }
 }
+
+
+
 

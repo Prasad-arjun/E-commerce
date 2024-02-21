@@ -10,6 +10,7 @@ import Account from "./pages/account";
 import Cart from "./pages/cart";
 import Recommnedation from "./pages/recommended";
 import ProductDetails from "./componets/productDetails";
+import  Footer  from "./pages/footer";
 function App() {
   return (
     <>
@@ -64,6 +65,8 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/productDetails" element={<ProductDetails />} />
       </Routes>
+      <Footer/>
+      
     </>
   );
 }

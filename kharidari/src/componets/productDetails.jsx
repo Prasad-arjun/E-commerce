@@ -1,12 +1,32 @@
+import * as React from "react";
 import "../index.css";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import IconButton from "@mui/material/IconButton";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useLocation } from "react-router-dom";
+import { SnackBar } from "../utils.js/SnackBar";
+import Rating from "@mui/material/Rating";
 const ProductDetails = () => {
   const location = useLocation();
   const { productName, price, url, bgcolor, detail } = location.state || {};
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <>
+      <SnackBar open={open} onClose={handleClose} />
       <div className="h-[80vh] w-[100%] center">
         <div className="h-[90%] w-[60%] center">
           <div
@@ -20,10 +40,26 @@ const ProductDetails = () => {
             {/* product details  */}
             <p className="p-1 font-medium text-xl">{productName}</p>
             <p className="p-1 ">{detail}</p>
-            <p className="p-1 font-semibold ">
-              Price: <CurrencyRupeeIcon fontSize="extra-small" />
-              {price}
-            </p>
+            <div className="p-1 mt-2 w-[80%] flex justify-between items-center font-semibold ">
+              <p>
+                Price: <CurrencyRupeeIcon fontSize="extra-small" />
+                {price}
+              </p>
+              <IconButton onClick={handleClick}>
+                <AddShoppingCartIcon
+                  fontSize="medium"
+                  sx={{ color: "black" }}
+                />
+              </IconButton>
+            </div>
+            <div className="flex items-center justify-center">
+              <p className="p-1 items-center ">Reviews :</p>
+              <Rating
+                value={3}
+                sx={{ fontSize: "large", marginTop: "1" }}
+                readOnly
+              />
+            </div>
           </div>
         </div>
       </div>
