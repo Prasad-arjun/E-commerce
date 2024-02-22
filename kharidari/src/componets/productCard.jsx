@@ -5,7 +5,7 @@ import IconButton from "@mui/material/IconButton";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import { SnackBar } from "../utils.js/SnackBar";
-const ProductCard = ({ productName, price, url, bgcolor, detail }) => {
+const ProductCard = ({ productName, price, url, bgcolor, detail, rating }) => {
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
@@ -30,6 +30,7 @@ const ProductCard = ({ productName, price, url, bgcolor, detail }) => {
         url,
         bgcolor,
         detail,
+        rating,
       },
     });
   };
@@ -37,7 +38,7 @@ const ProductCard = ({ productName, price, url, bgcolor, detail }) => {
     <>
       <SnackBar open={open} onClose={handleClose} />
       <div
-        className="p-1 m-2 h-[60%] w-[20vw] flex flex-col justify-around items-center  rounded-lg"
+        className="p-1 m-2 h-[60%] w-[25vw] flex flex-col flex-wrap justify-around items-center rounded-lg"
         style={{ backgroundColor: bgcolor }}
       >
         <div className="h-[70%] w-full center">
@@ -49,7 +50,7 @@ const ProductCard = ({ productName, price, url, bgcolor, detail }) => {
         </div>
         <div className="h-[30%] w-full flex flex-col justify-center items-center font-semibold">
           <div className="p-3 relative font-semibold">
-            <p>{productName}</p>
+            <p className="line-clamp-1">{productName}</p>
           </div>
           <div className=" w-[90%] flex flex-row-reverse justify-between items-center">
             <IconButton

@@ -8,7 +8,8 @@ import { SnackBar } from "../utils.js/SnackBar";
 import Rating from "@mui/material/Rating";
 const ProductDetails = () => {
   const location = useLocation();
-  const { productName, price, url, bgcolor, detail } = location.state || {};
+  const { productName, price, url, bgcolor, detail, rating } =
+    location.state || {};
 
   const [open, setOpen] = React.useState(false);
 
@@ -23,7 +24,6 @@ const ProductDetails = () => {
 
     setOpen(false);
   };
-
   return (
     <>
       <SnackBar open={open} onClose={handleClose} />
@@ -39,7 +39,7 @@ const ProductDetails = () => {
           <div className="w-[50%] h-[80%] p-6 font-sans bg-[#f9f9f7] rounded-r-md flex flex-col items-start justify-center">
             {/* product details  */}
             <p className="p-1 font-medium text-xl">{productName}</p>
-            <p className="p-1 ">{detail}</p>
+            <p className="p-1 line-clamp-4">{detail}</p>
             <div className="p-1 mt-2 w-[80%] flex justify-between items-center font-semibold ">
               <p>
                 Price: <CurrencyRupeeIcon fontSize="extra-small" />
@@ -55,7 +55,7 @@ const ProductDetails = () => {
             <div className="flex items-center justify-center">
               <p className="p-1 items-center ">Reviews :</p>
               <Rating
-                value={3}
+                value={rating}
                 sx={{ fontSize: "large", marginTop: "1" }}
                 readOnly
               />

@@ -10,7 +10,9 @@ import Account from "./pages/account";
 import Cart from "./pages/cart";
 import Recommnedation from "./pages/recommended";
 import ProductDetails from "./componets/productDetails";
-import  Footer  from "./pages/footer";
+import Footer from "./pages/footer";
+import Counter from "./app/feature/counter";
+import TrialApi from "./app/feature/trialApi";
 function App() {
   return (
     <>
@@ -65,8 +67,7 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/productDetails" element={<ProductDetails />} />
       </Routes>
-      <Footer/>
-      
+      <Footer />
     </>
   );
 }
