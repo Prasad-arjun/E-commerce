@@ -4,11 +4,11 @@ export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "https://fakestoreapi.com/products" }),
   endpoints:(builder)=>({
-    getPosts:builder.query({
-    query:()=>""
-    })
-  
+    getProduct:builder.query({
+    query:(postId)=>`${postId}`,
+    }),
+    
   })
 });
 
-export const {useGetPostsQuery}=apiSlice;
+export const {useGetProductQuery}=apiSlice;

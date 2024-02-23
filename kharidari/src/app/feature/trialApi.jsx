@@ -1,8 +1,8 @@
 import React from "react";
-import { useGetPostsQuery } from "./apiSlice/apiSlice";
+import { useGetProductQuery } from "./apiSlice/apiSlice";
 
 function TrialApi() {
-const {data ,error ,isLoading}=useGetPostsQuery(); 
+const {data ,error ,isLoading}=useGetProductQuery(); 
 
   return (
     <>

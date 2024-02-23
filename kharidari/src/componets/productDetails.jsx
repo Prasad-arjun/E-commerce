@@ -28,9 +28,9 @@ const ProductDetails = () => {
     <>
       <SnackBar open={open} onClose={handleClose} />
       <div className="h-[80vh] w-[100%] center">
-        <div className="h-[90%] w-[60%] center">
+        <div className="h-[90%] w-[60%] center ">
           <div
-            className="w-[50%] h-[80%] center rounded-l-md"
+            className="w-[50%] h-[80%] center rounded-l-md border border-1 border-zinc-200"
             style={{ backgroundColor: bgcolor }}
           >
             {/* product image */}

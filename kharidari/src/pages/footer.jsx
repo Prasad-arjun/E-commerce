@@ -27,7 +27,7 @@ const Footer = () => {
           </li>
         </ul>
         <div className="flex flex-wrap justify-center mb-4">
-         <p>An ecommerce made only small and mid-sized groccery stores</p>
+         <p>An ecommerce web app made with ❤️</p>
         </div>
         <p className=" ">&copy;2024 Arjun Prasad | All Rights Reserved</p>
       </div>

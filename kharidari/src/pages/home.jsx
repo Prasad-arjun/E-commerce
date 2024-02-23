@@ -1,16 +1,20 @@
 import "../index.css";
+import { useState } from "react";
 import HeroImage1 from "../assets/HeroImage1.jpg";
 import { Button } from "@mui/material";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Link } from "react-router-dom";
 import ProductCard from "../componets/productCard";
-import { useGetPostsQuery } from "../app/feature/apiSlice/apiSlice";
+import { useGetProductQuery } from "../app/feature/apiSlice/apiSlice";
 import { Loading } from "../utils.js/loading";
 
-
 function Home() {
-  const { data, error, isLoading, isSuccess } = useGetPostsQuery();
-  console.log(error);
+  const [category, setCategory] = useState("");
+  const handleCategory = (category) => {
+    setCategory(category);
+  };
+  const { data, error, isLoading, isSuccess } = useGetProductQuery(category);
+
   return (
     <>
       <div className="h-[85.5vh] w-[100vw] center bg-[#f9f9f9]">
@@ -54,9 +58,42 @@ function Home() {
         </div>
       </div>
       <div className="h-auto w-[100%] bg-[#f9f9f9]  center">
-        <div className="w-[95%] h-[90%] p-12 m-2">
-          <h1 className="pb-6 mb-2 text-3xl font-mono">Featured Products</h1>
-          <div className="flex flex-wrap  justify-evenly items-start ">
+        <div className="w-[95%] h-[90%] center flex-col  p-12 m-2">
+          <h1 className=" text-3xl font-mono ">Featured Products</h1>
+          <h1 className="h-[0.1vh] w-[100%] mb-4 mt-2 bg-black"></h1>
+          <div className=" w-[50%] h-[40%] m-8 flex items-center justify-between">
+            <button
+              className="border border-1 border-black w-[15%] h-9 rounded-md hover:bg-black hover:text-white ease-in-out transition  duration-75 hover:scale-105 focus:bg-black focus:text-white"
+              onClick={() => handleCategory("/")}
+            >
+              All
+            </button>
+            <button
+              className="border border-1 border-black w-[15%] h-9 rounded-md hover:bg-black hover:text-white ease-in-out transition  duration-75 hover:scale-105 focus:bg-black focus:text-white"
+              onClick={() => handleCategory("/category/electronics")}
+            >
+              Electronics
+            </button>
+            <button
+              className="border border-1 border-black w-[15%] h-9 rounded-md hover:bg-black hover:text-white ease-in-out transition  duration-75 hover:scale-105 focus:bg-black focus:text-white"
+              onClick={() => handleCategory("/category/men's clothing")}
+            >
+              Men's
+            </button>
+            <button
+              className="border border-1 border-black w-[15%] h-9 rounded-md hover:bg-black hover:text-white ease-in-out transition  duration-75 hover:scale-105 focus:bg-black focus:text-white"
+              onClick={() => handleCategory("/category/women's clothing")}
+            >
+              Women's
+            </button>
+            <button
+              className="border border-1 border-black w-[15%] h-9 rounded-md hover:bg-black hover:text-white ease-in-out transition  duration-75 hover:scale-105 focus:bg-black focus:text-white"
+              onClick={() => handleCategory("/category/jewelery")}
+            >
+              Jewelery
+            </button>
+          </div>
+          <div className="flex flex-wrap justify-evenly items-start mt-10 ">
             {isLoading ? (
               <div className=" w-[100%] h-[100%] center">
                 <Loading />{" "}
@@ -78,9 +115,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="h-[100vh] w-[100%] bg-green-400">
-        <p>Discover unique products</p>
-      </div>
+     
     </>
   );
 }
