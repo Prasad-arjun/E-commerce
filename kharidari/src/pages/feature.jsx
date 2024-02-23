@@ -1,7 +1,8 @@
+import ideation from "../assets/ideatation.svg";
 const Feature = () => {
   return (
     <>
-      <h1>Feature page</h1>
+      <img src={ideation} alt="ideation" className="h-[80vh] w-[100vw]" />
     </>
   );
 };

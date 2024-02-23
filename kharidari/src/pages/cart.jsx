@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import CartIsEmpty from "../componets/cartIsEmpty";
 import CartItemsShowCase from "../componets/cartItemsShowCase";
 
+
 const Cart = () => {
   const cartValue = useSelector((state) => state.cart.value);
   const isEmptyCart = (obj) => {

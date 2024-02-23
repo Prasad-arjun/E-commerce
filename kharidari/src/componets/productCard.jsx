@@ -6,12 +6,18 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import Paper from "@mui/material/Paper";
 import { SnackBar } from "../utils.js/SnackBar";
-import {useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToCart } from "../app/feature/cart/cartSlice";
-const ProductCard = ({ productName, price, url, detail, rating,productId }) => {
+const ProductCard = ({
+  productName,
+  price,
+  url,
+  detail,
+  rating,
+  productId,
+}) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
 
   const [open, setOpen] = useState(false);
 
@@ -35,21 +41,24 @@ const ProductCard = ({ productName, price, url, detail, rating,productId }) => {
         url,
         detail,
         rating,
-        productId
+        productId,
       },
     });
   };
-  const setCartData=()=>{
-    const data={productId:productId,productData:{
-    productName:productName,
-    price:price,
-    url:url,
-    detail:detail,
-    rating:rating
-    }}
-    dispatch(addToCart(data))
-    handleClickSnackbar()
-  }
+  const setCartData = () => {
+    const data = {
+      productId: productId,
+      productData: {
+        productName: productName,
+        price: price,
+        url: url,
+        detail: detail,
+        rating: rating,
+      },
+    };
+    dispatch(addToCart(data));
+    handleClickSnackbar();
+  };
   return (
     <>
       <SnackBar open={open} onClose={handleClose} />
@@ -79,8 +88,8 @@ const ProductCard = ({ productName, price, url, detail, rating,productId }) => {
                 <AddShoppingCartIcon />
               </IconButton>
               <p>
-                {price}
                 <CurrencyRupeeIcon fontSize="small" />
+                {price}
               </p>
             </div>
           </div>

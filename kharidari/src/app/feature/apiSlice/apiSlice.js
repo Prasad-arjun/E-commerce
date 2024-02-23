@@ -7,8 +7,11 @@ export const apiSlice = createApi({
     getProduct:builder.query({
     query:(postId)=>`${postId}`,
     }),
+    getShopProducts:builder.query({
+      query:(()=>"")
+    })
     
   })
 });
 
-export const {useGetProductQuery}=apiSlice;
+export const {useGetProductQuery,useGetShopProductsQuery}=apiSlice;

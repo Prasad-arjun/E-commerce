@@ -6,9 +6,13 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useLocation } from "react-router-dom";
 import { SnackBar } from "../utils.js/SnackBar";
 import Rating from "@mui/material/Rating";
+import {addToCart} from "../app/feature/cart/cartSlice";
+import { useDispatch } from "react-redux";
 const ProductDetails = () => {
   const location = useLocation();
-  const { productName, price, url, bgcolor, detail, rating } =
+  const dispatch = useDispatch();
+
+  const { productName, price, url, bgcolor, detail, rating,productId } =
     location.state || {};
 
   const [open, setOpen] = React.useState(false);
@@ -24,6 +28,21 @@ const ProductDetails = () => {
 
     setOpen(false);
   };
+  const setCartData = () => {
+    const data = {
+      productId: productId,
+      productData: {
+        productName: productName,
+        price: price,
+        url: url,
+        detail: detail,
+        rating: rating,
+      },
+    };
+    dispatch(addToCart(data));
+    handleClick();
+
+  }
   return (
     <>
       <SnackBar open={open} onClose={handleClose} />
@@ -45,7 +64,7 @@ const ProductDetails = () => {
                 Price: <CurrencyRupeeIcon fontSize="extra-small" />
                 {price}
               </p>
-              <IconButton onClick={handleClick}>
+              <IconButton onClick={()=>setCartData()}>
                 <AddShoppingCartIcon
                   fontSize="medium"
                   sx={{ color: "black" }}

@@ -3,6 +3,7 @@ export const Loading = () => {
   return (
     <>
       <CircularProgress  sx={{color:"black"}}/>
+      
     </>
   );
 };

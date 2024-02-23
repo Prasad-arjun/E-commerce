@@ -7,13 +7,14 @@ import { Link } from "react-router-dom";
 import ProductCard from "../componets/productCard";
 import { useGetProductQuery } from "../app/feature/apiSlice/apiSlice";
 import { Loading } from "../utils.js/loading";
+import Footer from "./footer";
 
 function Home() {
   const [category, setCategory] = useState("");
   const handleCategory = (category) => {
     setCategory(category);
   };
-  const { data, error, isLoading, isSuccess } = useGetProductQuery(category);
+  const { data,isLoading, isSuccess } = useGetProductQuery(category);
 
   return (
     <>
@@ -115,7 +116,7 @@ function Home() {
           </div>
         </div>
       </div>
-     
+     <Footer />
     </>
   );
 }

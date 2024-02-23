@@ -1,7 +1,8 @@
+import ideation from "../assets/ideatation.svg";
 const Recommnedation = () => {
   return (
     <>
-      <h1>Recommnedation page</h1>
+          <img src={ideation} alt="ideation" className="h-[80vh] w-[100vw]" />
     </>
   );
 };
