@@ -106,9 +106,9 @@ function Home() {
                   productName={item.title}
                   price={Math.round(item.price * 82.88)}
                   url={item.image}
-                  bgcolor={item.bgcolor}
                   detail={item.description}
                   rating={item.rating.rate}
+                  productId={index}
                 />
               ))
             )}

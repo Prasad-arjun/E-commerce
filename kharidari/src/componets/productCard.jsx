@@ -6,8 +6,12 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import Paper from "@mui/material/Paper";
 import { SnackBar } from "../utils.js/SnackBar";
-const ProductCard = ({ productName, price, url, bgcolor, detail, rating }) => {
+import {useDispatch } from "react-redux";
+import { addToCart } from "../app/feature/cart/cartSlice";
+const ProductCard = ({ productName, price, url, detail, rating,productId }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
 
   const [open, setOpen] = useState(false);
 
@@ -29,12 +33,23 @@ const ProductCard = ({ productName, price, url, bgcolor, detail, rating }) => {
         productName,
         price,
         url,
-        bgcolor,
         detail,
         rating,
+        productId
       },
     });
   };
+  const setCartData=()=>{
+    const data={productId:productId,productData:{
+    productName:productName,
+    price:price,
+    url:url,
+    detail:detail,
+    rating:rating
+    }}
+    dispatch(addToCart(data))
+    handleClickSnackbar()
+  }
   return (
     <>
       <SnackBar open={open} onClose={handleClose} />
@@ -59,7 +74,7 @@ const ProductCard = ({ productName, price, url, bgcolor, detail, rating }) => {
                 sx={{ color: "black" }}
                 aria-label="add to shopping cart"
                 size="large"
-                onClick={handleClickSnackbar}
+                onClick={setCartData}
               >
                 <AddShoppingCartIcon />
               </IconButton>
