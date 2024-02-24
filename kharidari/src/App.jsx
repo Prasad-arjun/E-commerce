@@ -1,5 +1,7 @@
 import "./index.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import LoginIcon from "@mui/icons-material/Login";
 import Avatar from "@mui/material/Avatar";
 import { deepOrange } from "@mui/material/colors";
 import Badge from "@mui/material/Badge";
@@ -13,6 +15,8 @@ import Cart from "./pages/cart";
 import Recommnedation from "./pages/recommended";
 import ProductDetails from "./componets/productDetails";
 import { useSelector } from "react-redux";
+import Register from "./pages/register";
+import Login from "./pages/login";
 function App() {
   const cartValue = useSelector((state) => state.cart.value);
   const totalItemCount = Object.values(cartValue).reduce(
@@ -61,16 +65,18 @@ function App() {
                 className="h-9 w-72 p-2 focus:outline-none border-[#7c7c7c] border-[0.1rem] text-sm icon"
               />
               <Link to="/cart" className="">
-                <StyledBadge
-                  badgeContent={totalItemCount}
-                  color="secondary"
-                 
-                >
+                <StyledBadge badgeContent={totalItemCount} color="secondary">
                   <ShoppingCartIcon />
                 </StyledBadge>
               </Link>
-              <Link to="/account">
+              {/* <Link to="/account">
                 <Avatar sx={{ bgcolor: deepOrange[600] }}>AP</Avatar>
+              </Link>*/}
+              <Link to="/register">
+                <PersonAddIcon />
+              </Link>
+              <Link to="/login">
+                <LoginIcon />
               </Link>
             </div>
           </div>
@@ -85,6 +91,8 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/account" element={<Account />} />
         <Route path="/productDetails" element={<ProductDetails />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
