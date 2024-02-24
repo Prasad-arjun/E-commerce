@@ -19,6 +19,8 @@ import Register from "./pages/register";
 import Login from "./pages/login";
 function App() {
   const cartValue = useSelector((state) => state.cart.value);
+  const authValue = useSelector((state) => state.auth.value);
+  console.log(authValue);
   const totalItemCount = Object.values(cartValue).reduce(
     (acc, item) => acc + item.count,
     0
@@ -69,15 +71,20 @@ function App() {
                   <ShoppingCartIcon />
                 </StyledBadge>
               </Link>
-              {/* <Link to="/account">
-                <Avatar sx={{ bgcolor: deepOrange[600] }}>AP</Avatar>
-              </Link>*/}
-              <Link to="/register">
-                <PersonAddIcon />
-              </Link>
-              <Link to="/login">
-                <LoginIcon />
-              </Link>
+              {authValue ? (
+                <Link to="/account">
+                  <Avatar sx={{ bgcolor: deepOrange[600] }}>AP</Avatar>
+                </Link>
+              ) : (
+                <>
+                  <Link to="/register">
+                    <PersonAddIcon />
+                  </Link>
+                  <Link to="/login">
+                    <LoginIcon />
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </nav>
