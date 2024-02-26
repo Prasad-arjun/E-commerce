@@ -8,6 +8,7 @@ const Login = () => {
   const [lemail, setLEmail] = useState("");
   const [lpassword, setLPassword] = useState("");
   const dispatch = useDispatch();
+  const loginData={auth:true ,email:lemail}
   const handLoginSubmit = (event) => {
     event.preventDefault();
     if (lpassword.length > 6 && /[a-zA-Z]/.test(lpassword)) {
@@ -15,9 +16,8 @@ const Login = () => {
     } else {
       console.log("invalid password");
     }
-    console.log(lemail, lpassword);
     if (lemail === "test@gmail.com" && lpassword === "test@123") {
-      dispatch(profileVisibility(true));
+      dispatch(profileVisibility(loginData));
     }
   };
 

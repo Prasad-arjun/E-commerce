@@ -3,12 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
-    value: false,
+    isLoggedIn: false
   },
+
   reducers: {
     profileVisibility: (state, action) => {
-      state.value = action.payload;
+      state.isLoggedIn = action.payload;
+      console.log("is logged in slice",state.isLoggedIn);
     },
+   
   },
 });
 export const {profileVisibility} = authSlice.actions;

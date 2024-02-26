@@ -19,7 +19,7 @@ import Register from "./pages/register";
 import Login from "./pages/login";
 function App() {
   const cartValue = useSelector((state) => state.cart.value);
-  const authValue = useSelector((state) => state.auth.value);
+  const authValue = useSelector((state) => state.auth.isLoggedIn);
   console.log(authValue);
   const totalItemCount = Object.values(cartValue).reduce(
     (acc, item) => acc + item.count,
